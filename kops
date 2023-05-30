@@ -40,4 +40,8 @@ kops update cluster --name praveen.buzz --state=s3://praveen.buzz --yes --admin
  
  ## to delete the cluster after the work
  kops delete cluster --name=praveen.buzz --state=s3://praveen.buzz --yes
+ 
+ ## once you configure it will create automatically.. just run these command  when you want to work
+ kops create cluster --name=praveen.buzz --state=s3://praveen.buzz --yes
+ kops update cluster --name=praveen.buzz --state=s3://praveen.buzz --yes
 
