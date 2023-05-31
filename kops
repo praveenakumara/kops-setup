@@ -25,10 +25,7 @@ mv kops-linux-amd64 /usr/local/bin/kops
  nslookup -type=ns praveen.buzz
  
  ##now kops command to create cluster configurtaion an store in s3 bucket
- kops create cluster --name=praveen.buzz \ 
---state=s3://praveen.buzz --zones=ap-south-1a,ap-south-1b \ 
---node-count=2 --node-size=t3.small --master-size=t3.medium --dns-zone=praveen.buzz \ 
---node-volume-size=8 --master-volume-size=8
+ kops create cluster --name=praveen.buzz --state=s3://praveen.buzz --zones=ap-south-1a,ap-south-1b --node-count=2 --node-size=t3.small --master-size=t3.medium --dns-zone=praveen.buzz --node-volume-size=8 --master-volume-size=8
 
 #configure kops with bucket name 
 kops update cluster --name praveen.buzz --state=s3://praveen.buzz --yes --admin
@@ -41,7 +38,10 @@ kops update cluster --name praveen.buzz --state=s3://praveen.buzz --yes --admin
  ## to delete the cluster after the work
  kops delete cluster --name=praveen.buzz --state=s3://praveen.buzz --yes
  
+ ##validate the cluster
+ kops validate cluster --name=praveen.buzz --state=s3://praveen.buzz 
+ 
  ## once you configure it will create automatically.. just run these command  when you want to work
- kops create cluster --name=praveen.buzz --state=s3://praveen.buzz --yes
- kops update cluster --name=praveen.buzz --state=s3://praveen.buzz --yes
+ kops create cluster --name=praveen.buzz --yes  --state=s3://praveen.buzz 
+ kops update cluster --name=praveen.buzz --yes --state=s3://praveen.buzz
 
