@@ -31,7 +31,10 @@ mv kops-linux-amd64 /usr/local/bin/kops
 kops update cluster --name praveen.buzz --state=s3://praveen.buzz --yes --admin
 
 ##validate the kops cluster with s3 bucket
- kops validate cluster --state=s3://praveen.buzz
+ kops validate cluster --name=praveen.buzz --state=s3://praveen.buzz 
+ # wait few more untill instance will up
+ 
+ kubectl get nodes -o wide 
  
  ## thats it created ckeck ur cluster and enjoy
  
